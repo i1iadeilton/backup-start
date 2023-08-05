@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<title>Calculadora Ef.Energetica </title>
+    <link rel="icon" href="./multimidia/DeOlho.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name=”description” content="A página é voltada para a conscientização do consumo de energia.">
+<link rel="stylesheet" href="./style/styleCalcEficEnergetica.css">
+     
+   
+     
+    
+</head>
+
+<body>
+	<header>
+		<nav class="header-container">
+			<div class="header-logo">
+				<picture>
+       				<img src="./multimidia/Deolho.png" width=50px height="40px" alt="Logo Start Level" loading="lazy">
+				</picture>
+			</div>
+			<nav class="header-navigation">
+				<ul>
+					<li>
+						<a href="./">Home</a>
+					</li>
+						<li>
+							<a href="./CalcEficEnergetica">Eficiência energética</a>
+						</li>
+					<li>
+						<a href="./quemSomos">Quem somos</a>
+					</li>
+				</ul>
+			</nav>
+		</nav>
+		</nav>
+	</header>
+	<section class="calcEficienciaEenergetica">
+		<div class="content">
+			<h1>Calculadora de eficiência energética </h1>
+			<p> Você já parou para pensar em como a sua casa ou empresa consome energia? Uma calculadora de eficiência
+				energética é uma ferramenta poderosa que permite analisar e avaliar o consumo de energia de diferentes
+				equipamentos e ambientes, fornecendo insights valiosos para otimizar o uso e reduzir desperdícios. Com
+				ela, é possível calcular o gasto energético de aparelhos, identificar oportunidades de economia e
+				estimar os custos associados. Essa calculadora ajudá-o a tomar decisões mais conscientes em relação ao
+				consumo de energia e adotar medidas sustentáveis. Que tipo de equipamentos você gostaria de avaliar?
+				Quais são as suas principais preocupações em relação ao consumo de energia? <strong>Vamos juntos
+					explorar essa calculadora de eficiência energética e encontrar maneiras de economizar e preservar o
+					meio ambiente!</strong>
+			</p>
+		</div>
+		<form id="linhaContainer" action="/calculoEnergia2" method="POST">
+
+			<div class="input-fields-wrapper">
+				<fieldset>
+						 <select name="equipamento" class="row" autocomplete="off" autofocus required onchange="atualizarCampoPotencia()">
+							<option disabled selected value="">Equipamento</option>
+							<option value="Ar-condicionado7milBTUs">Ar-condicionado 7.000 BTUs</option>
+							<option value="Ar-condicionado7500BTUs">Ar-condicionado 7.500 BTUs</option>
+							<option value="Ar-condicionado10milBTUs">Ar-condicionado 10.000 BTUs</option>
+							<option value="Ar-condicionado12milBTUs">Ar-condicionado 12.000 BTUs</option>
+							<option value="AspiradorPo">Aspirador de pó residencial</option>
+							<option value="BatedeiraBolo">Batedeira de bolo</option>
+							<option value="CafeteiraElétrica">Cafeteira elétrica</option>
+							<option value="CarregadorBateria">Carregador de bateria</option>
+							<option value="ChuveiroEletrico">Chuveiro elétrico</option>
+							<option value="EquipamentoSom">Equipamento de som (3 em 1)</option>
+							<option value="EspremedorFrutas">Espremedor de frutas doméstico</option>
+							<option value="FerroPassarRoupas">Ferro elétrico de passar roupas</option>
+							<option value="FerroPassarRoupasAutomatico">Ferro elétrico automático de passar roupas
+							</option>
+							<option value="FogaoAutomatico">Fogão comum com acendedor</option>
+							<option value="Micro-ondas">Forno micro-ondas</option>
+							<option value="FreezerHorizontal">Freezer horizontal 1 ou 2 portas</option>
+							<option value="Frigobar">Frigobar</option>
+							<option value="GeladeiraComum">Geladeira comum</option>
+							<option value="GeladeiraDuplex">Geladeira duplex 430 litros</option>
+							<option value="Gelagua">Gelágua</option>
+							<option value="Gril ">Gril</option>
+							<option value="HidromassagemAquecedor">Hidromassagem com aquecedor</option>
+							<option value="ImpressoraComum">Impressora comum</option>
+							<option value="ImpressoraLaser">Impressora a laser</option>
+							<option value="LampadaFluorescenteCompacta40W">Lâmpada fluorescente compacta 40W</option>
+							<option value="LampadaFluorescenteCompacta60W">Lâmpada fluorescente compacta 60W</option>
+							<option value="LampadaFluorescenteCompacta100W">Lâmpada fluorescente compacta 100W</option>
+							<option value="Liquidificador">Liquidificador</option>
+							<option value="MaquinaCostura">Máquina de costura</option>
+							<option value="MaquinaLavarPrato">Máquina de lavar louças</option>
+							<option value="MaquinaSecarRoupas">Máquina de secar roupas</option>
+							<option value="Microcomputador">Microcomputador</option>
+							<option value="MicrofornoEletrico">Microforno elétrico</option>
+							<option value="SecadorCabelo">Secador de cabelo</option>
+							<option value="Televisor26polegadas">Televisor LCD 26’’</option>
+							<option value="Televisor29polegadas">Televisor 29’’</option>
+							<option value="Televisor32polegadas">Televisor LCD 32’’</option>
+							<option value="Televisor40polegadas">Televisor LCD 40’’</option>
+							<option value="Televisor42polegadas">Televisor LCD 42’’</option>
+							<option value="Torradeira">Torradeira</option>
+							<option value="Ventilador">Ventilador</option>
+						</select>
+					
+						<input type="number" name="potencia" placeholder="Potencia (em W)" class="row" min="1"
+							autocomplete="off" required>
+				
+						<input type="time" name="horas" placeholder="Tempo utilizado (em h)" class="row">
+				
+					
+						<input type="number" name="diasMes" min="1" max="31" placeholder="Nº de dias utilizados/mês"
+							class="row" autocomplete="off" required>
+						
+							
+							
+						
+					
+				</fieldset>
+				
+				
+				
+			</div>
+			<button id="btnAdicionarLinha" type="button" onclick="addFields()">+</button>	
+			<button id="calcular" type="submit">Calcular</button>	
+			
+		</form>
+		
+		<div id="resultadoEficiencia" class="resultado-energia">Consumo total: 0 kWh</div>
+		<div id="resultadoMonetario" class="resultado-energia">Gasto total: 0 </div>
+		<canvas id="graficoEficiencia"></canvas>
+		
+	</section>
+	<footer>
+		<p class="breve-footer" style="color: white;">Start Level 2023 | <strong>Development for Level up!</strong>
+		</p>
+		<a class="github" href="https://github.com/StartLevel">
+			<img src="./multimidia/contact/github.webp" width="18px" height="21px" alt="github">
+		</a>
+	</footer>
+
+
+	<script src="./js/chart.min.js"></script>
+	<script>
+		
+		
+		
+		
+        function addFields() {
+            var wrapper = document.querySelector(".input-fields-wrapper");
+            var newFields = `
+                <fieldset class="linhaContainer">
+						 <select name="equipamento" class="row" autocomplete="off" autofocus required onchange="atualizarCampoPotencia()">
+							<option disabled selected value="">Equipamento</option>
+							<option value="Ar-condicionado7milBTUs">Ar-condicionado 7.000 BTUs</option>
+							<option value="Ar-condicionado7500BTUs">Ar-condicionado 7.500 BTUs</option>
+							<option value="Ar-condicionado10milBTUs">Ar-condicionado 10.000 BTUs</option>
+							<option value="Ar-condicionado12milBTUs">Ar-condicionado 12.000 BTUs</option>
+							<option value="AspiradorPo">Aspirador de pó residencial</option>
+							<option value="BatedeiraBolo">Batedeira de bolo</option>
+							<option value="CafeteiraElétrica">Cafeteira elétrica</option>
+							<option value="CarregadorBateria">Carregador de bateria</option>
+							<option value="ChuveiroEletrico">Chuveiro elétrico</option>
+							<option value="EquipamentoSom">Equipamento de som (3 em 1)</option>
+							<option value="EspremedorFrutas">Espremedor de frutas doméstico</option>
+							<option value="FerroPassarRoupas">Ferro elétrico de passar roupas</option>
+							<option value="FerroPassarRoupasAutomatico">Ferro elétrico automático de passar roupas
+							</option>
+							<option value="FogaoAutomatico">Fogão comum com acendedor</option>
+							<option value="Micro-ondas">Forno micro-ondas</option>
+							<option value="FreezerHorizontal">Freezer horizontal 1 ou 2 portas</option>
+							<option value="Frigobar">Frigobar</option>
+							<option value="GeladeiraComum">Geladeira comum</option>
+							<option value="GeladeiraDuplex">Geladeira duplex 430 litros</option>
+							<option value="Gelagua">Gelágua</option>
+							<option value="Gril ">Gril</option>
+							<option value="HidromassagemAquecedor">Hidromassagem com aquecedor</option>
+							<option value="ImpressoraComum">Impressora comum</option>
+							<option value="ImpressoraLaser">Impressora a laser</option>
+							<option value="LampadaFluorescenteCompacta40W">Lâmpada fluorescente compacta 40W</option>
+							<option value="LampadaFluorescenteCompacta60W">Lâmpada fluorescente compacta 60W</option>
+							<option value="LampadaFluorescenteCompacta100W">Lâmpada fluorescente compacta 100W</option>
+							<option value="Liquidificador">Liquidificador</option>
+							<option value="MaquinaCostura">Máquina de costura</option>
+							<option value="MaquinaLavarPrato">Máquina de lavar louças</option>
+							<option value="MaquinaSecarRoupas">Máquina de secar roupas</option>
+							<option value="Microcomputador">Microcomputador</option>
+							<option value="MicrofornoEletrico">Microforno elétrico</option>
+							<option value="SecadorCabelo">Secador de cabelo</option>
+							<option value="Televisor26polegadas">Televisor LCD 26’’</option>
+							<option value="Televisor29polegadas">Televisor 29’’</option>
+							<option value="Televisor32polegadas">Televisor LCD 32’’</option>
+							<option value="Televisor40polegadas">Televisor LCD 40’’</option>
+							<option value="Televisor42polegadas">Televisor LCD 42’’</option>
+							<option value="Torradeira">Torradeira</option>
+							<option value="Ventilador">Ventilador</option>
+						</select>
+					
+						<input type="number" name="potencia" placeholder="Potencia (em W)" class="row" min="1"
+							autocomplete="off" required>
+				
+						<input type="time" name="horas" placeholder="Tempo utilizado (em h)" class="row">
+				
+					
+						<input type="number" name="diasMes" min="1" max="31" placeholder="Nº de dias utilizados/mês"
+							class="row" autocomplete="off" required>
+						
+							
+					 <button type="button" onclick="removeFields(this)">Remover</button>	
+					
+				</fieldset>`;
+            var newDiv = document.createElement("div");
+            newDiv.innerHTML = newFields;
+            wrapper.appendChild(newDiv);
+            
+            // Adicionar eventos de input para o novo formulário
+            const newInputFields = newDiv.querySelectorAll("input");
+            newInputFields.forEach((input) => {
+                input.addEventListener("input", calcularEficiencia);
+            });
+            
+            
+            
+        }
+        
+        function calcularHoras(horas) {
+    const partes = horas.split(":");
+    const horasInt = parseInt(partes[0]);
+    const minutosInt = parseInt(partes[1]);
+    const horasDecimal = horasInt + (minutosInt / 60.0);
+    return horasDecimal;
+}
+        
+         function calcularEficiencia() {
+    const form = document.getElementById("linhaContainer");
+    const fields = form.querySelectorAll(".input-fields-wrapper fieldset");
+
+    let totalConsumo = 0;
+    let totalGasto = 0
+
+    fields.forEach((fieldset) => {
+        const potencia = parseFloat(
+            fieldset.querySelector('input[name="potencia"]').value
+        );
+        const horasString = fieldset.querySelector('input[name="horas"]').value;
+        const horas = calcularHoras(horasString); // Call the calcularHoras method here
+        const diasMes = parseFloat(
+            fieldset.querySelector('input[name="diasMes"]').value
+        );
+
+        if (!isNaN(potencia) && !isNaN(horas) && !isNaN(diasMes) ) {
+            const consumoEquipamento = (potencia * horas) * 0.001 ;
+            totalConsumo += consumoEquipamento;
+            totalGasto += (potencia * horas) * 0.001 * diasMes * 0.89
+        }
+    });
+
+            const resultado = document.getElementById("resultadoEficiencia");
+            resultado.textContent = `Consumo total: ${totalConsumo.toFixed(2)} kWh`;
+            
+            const resultado2 = document.getElementById("resultadoMonetario");
+            resultado2.textContent = `Gasto total: ${totalGasto.toFixed(2)} `;
+        }
+
+        // Adicionando os eventos de input para calcular a eficiência em tempo real
+        const inputFields = document.querySelectorAll(".input-fields-wrapper input");
+        inputFields.forEach((input) => {
+            input.addEventListener("input", calcularEficiencia);
+        });
+        
+      function removeFields(button) {
+    var fieldset = button.parentNode; // Obtem o elemento "fieldset" que será removido
+    var wrapper = fieldset.parentNode; // Obtem o elemento "div" que contém o "fieldset"
+    wrapper.removeChild(fieldset); // Remove o "fieldset" do "wrapper"
+    calcularEficiencia(); // Recalcula a eficiência após a remoção do formulário
+}
+
+ function atualizarCampoPotencia() {
+        // Encontre o select de equipamento dentro do mesmo fieldset do evento atual
+        const equipamentoSelect = event.target;
+        const fieldset = equipamentoSelect.closest("fieldset");
+
+        // Obtenha o valor selecionado do equipamento
+        var equipamentoSelecionado = equipamentoSelect.value;
+
+        // Mapeie os valores dos equipamentos para suas respectivas potências
+       var mapaPotenciaEquipamentos = {
+    'Ar-condicionado7milBTUs': 900,
+    'Ar-condicionado7500BTUs': 950,
+    'Ar-condicionado10milBTUs': 1200, // Adicionei o equipamento "Ar-condicionado 10.000 BTUs" com potência de 1000 watts
+    'Ar-condicionado12milBTUs': 1400,
+    'AspiradorPo': 750,
+    'BatedeiraBolo': 150,
+    'CafeteiraElétrica': 750,
+    'CarregadorBateria': 500,
+    'ChuveiroEletrico': 4400,
+    'EquipamentoSom': 50,
+    'EspremedorFrutas': 200,
+    'FerroPassarRoupas': 550,
+    'FerroPassarRoupasAutomatico': 1000,
+    'FogaoAutomatico': 90,
+    'Micro-ondas': 1150,
+    'FreezerHorizontal': 550,
+    'Frigobar': 80,
+    'GeladeiraComum': 150,
+    'GeladeiraDuplex': 250,
+    'Gelagua': 120,
+    'Gril': 1200,
+    'HidromassagemAquecedor': 6600,
+    'ImpressoraComum': 90,
+    'ImpressoraLaser': 900,
+    'LampadaFluorescenteCompacta40W': 40,
+    'LampadaFluorescenteCompacta60W': 60,
+    'LampadaFluorescenteCompacta100W': 100,
+    'Liquidificador': 200,
+    'MaquinaCostura': 850,
+    'MaquinaLavarPrato': 1200,
+    'MaquinaSecarRoupas': 1500,
+    'Microcomputador': 250,
+    'MicrofornoEletrico': 1000,
+    'SecadorCabelo': 1000,
+    'Televisor26polegadas': 50,
+    'Televisor29polegadas': 150,
+    'Televisor32polegadas': 70,
+    'Televisor40polegadas': 80,
+    'Televisor42polegadas': 100,
+    'Torradeira': 1000,
+    'Ventilador': 100,
+};
+
+        // Encontre o campo de potência no mesmo fieldset do equipamento selecionado
+        var campoPotencia = fieldset.querySelector('input[name="potencia"]');
+
+        // Defina o valor do campo de potência com base no equipamento selecionado
+        campoPotencia.value = mapaPotenciaEquipamentos[equipamentoSelecionado] || '';
+    }
+    
+    // Adicione o evento "change" para chamar a função atualizarCampoPotencia quando o equipamento é selecionado
+    const equipamentoSelect = document.querySelector('select[name="equipamento"]');
+    equipamentoSelect.addEventListener('change', atualizarCampoPotencia);
+    
+    
+    </script>
+
+
+
+
+
+</body>
+
+</html>
